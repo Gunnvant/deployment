@@ -2,7 +2,7 @@
 
 This is the project repo for the Fullstack Developer Nanodegree Project 4: Server Deployment, Containerization, and Testing.
 
-API endpoint: **tdo**
+API endpoint: **todo**
 
 The Flask app that will be used for this project consists of a simple API with three endpoints:
 
