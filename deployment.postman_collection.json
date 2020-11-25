@@ -1,0 +1,101 @@
+{
+	"info": {
+		"_postman_id": "c13728b9-3ae1-4cbd-b431-cba94fe7e4b8",
+		"name": "deployment",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "/auth",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\":\"gunnvant3.14@gmail.com\",\r\n    \"password\":\"pw\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://ac5056b607b214549ac1cf723cdf8ed4-1952181057.us-east-2.elb.amazonaws.com:80/auth",
+					"protocol": "http",
+					"host": [
+						"ac5056b607b214549ac1cf723cdf8ed4-1952181057",
+						"us-east-2",
+						"elb",
+						"amazonaws",
+						"com"
+					],
+					"port": "80",
+					"path": [
+						"auth"
+					]
+				},
+				"description": "This takes a email and password as json arguments and\r\nreturns a JWT based on a custom secret."
+			},
+			"response": []
+		},
+		{
+			"name": "/contents",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE2MDc0ODYyMTAsIm5iZiI6MTYwNjI3NjYxMCwiZW1haWwiOiJndW5udmFudDMuMTRAZ21haWwuY29tIn0.6zF3Zbs5lu4m0gA-gRgO3LbBBSgfLCti6oVCeodjgXU",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://ac5056b607b214549ac1cf723cdf8ed4-1952181057.us-east-2.elb.amazonaws.com:80/contents",
+					"protocol": "http",
+					"host": [
+						"ac5056b607b214549ac1cf723cdf8ed4-1952181057",
+						"us-east-2",
+						"elb",
+						"amazonaws",
+						"com"
+					],
+					"port": "80",
+					"path": [
+						"contents"
+					]
+				},
+				"description": "This requires a valid JWT, and returns the un-encrpyted contents of that token."
+			},
+			"response": []
+		},
+		{
+			"name": "/",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://ac5056b607b214549ac1cf723cdf8ed4-1952181057.us-east-2.elb.amazonaws.com:80/",
+					"protocol": "http",
+					"host": [
+						"ac5056b607b214549ac1cf723cdf8ed4-1952181057",
+						"us-east-2",
+						"elb",
+						"amazonaws",
+						"com"
+					],
+					"port": "80",
+					"path": [
+						""
+					]
+				},
+				"description": "This is a simple health check, which returns the response 'Healthy'"
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
